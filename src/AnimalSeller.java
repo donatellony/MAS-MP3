@@ -4,11 +4,11 @@ public class AnimalSeller extends Person {
 
     private int animalsSold;
 
-    public AnimalSeller(String name, String surname, String town) {
+    public AnimalSeller(String name, String surname, String town) throws InvalidPersonDataException {
         super(name, surname, town);
     }
 
-    public AnimalSeller(Person oldPerson) {
+    public AnimalSeller(Person oldPerson) throws InvalidPersonDataException {
         super(oldPerson.getName(), oldPerson.getSurname(), oldPerson.getTown());
         try {
             setAnimalsSold(0);
@@ -19,7 +19,7 @@ public class AnimalSeller extends Person {
         changePersonType(oldPerson, this);
     }
 
-    public AnimalSeller(Person oldPerson, int animalsSold) {
+    public AnimalSeller(Person oldPerson, int animalsSold) throws InvalidPersonDataException {
         this(oldPerson);
         try {
             setAnimalsSold(animalsSold);

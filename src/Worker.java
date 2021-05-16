@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public abstract class Worker {
     private static HashSet<Worker> workers = new HashSet<>();
-    
+
     private int id;
     private static int ID = 0;
     private String email;
@@ -13,15 +13,12 @@ public abstract class Worker {
     private String name;
     private String surname;
 
-    public Worker(String name, String surname, String workEmail, float paymentPerHour) {
-        try {
-            setEmail(workEmail);
-            setPaymentPerHour(paymentPerHour);
-            setName(name);
-            setSurname(surname);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Worker(String name, String surname, String workEmail, float paymentPerHour) throws Exception {
+        setEmail(workEmail);
+        setPaymentPerHour(paymentPerHour);
+        setName(name);
+        setSurname(surname);
+        addWorker(this);
         id = ++ID;
     }
 
@@ -32,7 +29,7 @@ public abstract class Worker {
     }
 
     public void setName(String name) throws InvalidWorkerDataException {
-        if(name == null)
+        if (name == null)
             throw new InvalidWorkerDataException();
         this.name = name;
     }
@@ -42,7 +39,7 @@ public abstract class Worker {
     }
 
     public void setSurname(String surname) throws InvalidWorkerDataException {
-        if(surname == null)
+        if (surname == null)
             throw new InvalidWorkerDataException();
         this.surname = surname;
     }

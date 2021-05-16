@@ -2,7 +2,7 @@ public class Verifier extends Worker {
 
     private int verificationsNumber;
 
-    public Verifier(String name, String surname, String workEmail, float paymentPerHour) {
+    public Verifier(String name, String surname, String workEmail, float paymentPerHour) throws Exception {
         super(name, surname, workEmail, paymentPerHour);
         try {
             setVerificationsNumber(0);
@@ -11,7 +11,7 @@ public class Verifier extends Worker {
         }
     }
 
-    public Verifier(String name, String surname, String workEmail, float paymentPerHour, int verificationsNumber) {
+    public Verifier(String name, String surname, String workEmail, float paymentPerHour, int verificationsNumber) throws Exception {
         this(name, surname, workEmail, paymentPerHour);
         try {
             setVerificationsNumber(verificationsNumber);

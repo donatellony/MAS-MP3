@@ -1,10 +1,12 @@
+import exceptions.InvalidPersonDataException;
+
 public class Client extends Person {
 
-    public Client(String name, String surname, String town) {
+    public Client(String name, String surname, String town) throws InvalidPersonDataException {
         super(name, surname, town);
     }
 
-    public Client(Person oldPerson) {
+    public Client(Person oldPerson) throws InvalidPersonDataException {
         super(oldPerson.getName(), oldPerson.getSurname(), oldPerson.getTown());
         removePerson(this);
         changePersonType(oldPerson, this);

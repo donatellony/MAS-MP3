@@ -5,11 +5,11 @@ public class Veterinarian extends Person {
     private int animalsTreated;
 
 
-    public Veterinarian(String name, String surname, String town) {
+    public Veterinarian(String name, String surname, String town) throws InvalidPersonDataException {
         super(name, surname, town);
     }
 
-    public Veterinarian(Person oldPerson) {
+    public Veterinarian(Person oldPerson) throws InvalidPersonDataException {
         super(oldPerson.getName(), oldPerson.getSurname(), oldPerson.getTown());
         try {
             setAnimalsTreated(0);
@@ -20,7 +20,7 @@ public class Veterinarian extends Person {
         changePersonType(oldPerson, this);
     }
 
-    public Veterinarian(Person oldPerson, int animalsTreated) {
+    public Veterinarian(Person oldPerson, int animalsTreated) throws InvalidPersonDataException {
         this(oldPerson);
         try {
             setAnimalsTreated(animalsTreated);

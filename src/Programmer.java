@@ -2,7 +2,7 @@ public class Programmer extends Worker {
 
     private int knowledgeLevel;
 
-    public Programmer(String name, String surname, String workEmail, float paymentPerHour) {
+    public Programmer(String name, String surname, String workEmail, float paymentPerHour) throws Exception {
         super(name, surname, workEmail, paymentPerHour);
         try {
             setKnowledgeLevel(1);
@@ -11,7 +11,7 @@ public class Programmer extends Worker {
         }
     }
 
-    public Programmer(String name, String surname, String workEmail, float paymentPerHour, int knowledgeLevel){
+    public Programmer(String name, String surname, String workEmail, float paymentPerHour, int knowledgeLevel) throws Exception {
         this(name, surname, workEmail, paymentPerHour);
         try {
             setKnowledgeLevel(knowledgeLevel);

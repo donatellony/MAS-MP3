@@ -5,19 +5,15 @@ import java.util.ArrayList;
 public abstract class Person {
     private static ArrayList<Person> persons = new ArrayList<>();
 
-    String name;
-    String surname;
-    String town;
+    private String name;
+    private String surname;
+    private String town;
 
-    public Person(String name, String surname, String town) {
-        try {
-            setName(name);
-            setSurname(surname);
-            setTown(town);
-            addPerson(this);
-        } catch (InvalidPersonDataException e) {
-            e.printStackTrace();
-        }
+    public Person(String name, String surname, String town) throws InvalidPersonDataException {
+        setName(name);
+        setSurname(surname);
+        setTown(town);
+        addPerson(this);
     }
 
     public String getName() {
