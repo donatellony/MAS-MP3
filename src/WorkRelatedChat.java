@@ -1,7 +1,7 @@
 public class WorkRelatedChat {
     private String workName;
 
-    public WorkRelatedChat(String workName){
+    public WorkRelatedChat(String workName) {
         setWorkName(workName);
     }
 

@@ -1,3 +1,5 @@
+import java.util.EnumSet;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -25,6 +27,14 @@ public class Main {
             System.out.println("==He also has getFullInfo method and Town attribute of Person class==");
             System.out.println(admin.getFullInfo());
 
+            System.out.println("\n===Showing overlapping implementation in creation of various Chat-Type Chats");
+            Chat animalChat = new Chat("Cat lovers", EnumSet.of(ChatType.ANIMAL_CHAT));
+            animalChat.setFavoriteAnimalType("Cat");
+            Chat workOtherChat = new Chat("Football enjoyers", EnumSet.of(ChatType.WORK_CHAT, ChatType.OTHER_CHAT));
+            workOtherChat.setDescription("We love playing and watching football with our pets!");
+            workOtherChat.setMainTheme("Football");
+            workOtherChat.setWorkName("Football");
+            Chat.showChats();
         } catch (Exception e) {
             e.printStackTrace();
         }

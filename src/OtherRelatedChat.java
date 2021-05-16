@@ -1,7 +1,7 @@
 public class OtherRelatedChat {
     private String mainTheme;
 
-    OtherRelatedChat(String mainTheme){
+    OtherRelatedChat(String mainTheme) {
         setMainTheme(mainTheme);
     }
 

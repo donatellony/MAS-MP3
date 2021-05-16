@@ -1,15 +1,15 @@
 public class AnimalRelatedChat {
-    private String animalType;
+    private String favoriteAnimalType;
 
-    public AnimalRelatedChat(String animalType){
-        setAnimalType(animalType);
+    public AnimalRelatedChat(String favoriteAnimalType) {
+        setFavoriteAnimalType(favoriteAnimalType);
     }
 
-    public String getAnimalType() {
-        return animalType;
+    public String getFavoriteAnimalType() {
+        return favoriteAnimalType;
     }
 
-    public void setAnimalType(String animalType) {
-        this.animalType = animalType;
+    public void setFavoriteAnimalType(String animalType) {
+        this.favoriteAnimalType = animalType;
     }
 }
