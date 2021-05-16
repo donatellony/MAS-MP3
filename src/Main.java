@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.EnumSet;
 
 public class Main {
@@ -27,7 +28,7 @@ public class Main {
             System.out.println("==He also has getFullInfo method and Town attribute of Person class==");
             System.out.println(admin.getFullInfo());
 
-            System.out.println("\n===Showing overlapping implementation in creation of various Chat-Type Chats");
+            System.out.println("\n===Showing the overlapping implementation in creation of various Chat-Type Chats===");
             Chat animalChat = new Chat("Cat lovers", EnumSet.of(ChatType.ANIMAL_CHAT));
             animalChat.setFavoriteAnimalType("Cat");
             Chat workOtherChat = new Chat("Football enjoyers", EnumSet.of(ChatType.WORK_CHAT, ChatType.OTHER_CHAT));
@@ -35,6 +36,17 @@ public class Main {
             workOtherChat.setMainTheme("Football");
             workOtherChat.setWorkName("Football");
             Chat.showChats();
+
+            System.out.println("===Showing the multi-aspect inheritance implementation using the Animal class===");
+            Dog goodBoy = new Dog("Max", "Shiba-inu", LocalDate.parse("2020-04-05"), AnimalSize.MEDIUM, AnimalSize.MEDIUM);
+            Cat sweetGirl = new Cat("Ajwi", "Scottish Fold", LocalDate.parse("2019-06-07"), "British Shorthair");
+            System.out.println("Good boy " + goodBoy.getName() + " says " + goodBoy.getVoice());
+            System.out.println("Sweet girl " + sweetGirl.getName() + " says " + sweetGirl.getVoice());
+            System.out.println("==Let's see who are they searching for?==");
+            goodBoy.search();
+            sweetGirl.search();
+            System.out.println("==Animals extension is telling us that==");
+            Animal.showAnimals();
         } catch (Exception e) {
             e.printStackTrace();
         }
