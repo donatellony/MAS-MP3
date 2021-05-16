@@ -44,7 +44,7 @@ public class AnimalSeller extends Person {
         this.animalsSold = animalsSold;
     }
 
-    public void incrementAnimalsSold() {
+    public void sellAnimal() {
         this.animalsSold++;
     }
 }

@@ -4,7 +4,6 @@ public class Veterinarian extends Person {
 
     private int animalsTreated;
 
-
     public Veterinarian(String name, String surname, String town) throws InvalidPersonDataException {
         super(name, surname, town);
     }
@@ -45,7 +44,7 @@ public class Veterinarian extends Person {
         this.animalsTreated = animalsTreated;
     }
 
-    public void incrementAnimalsTreated() {
+    public void treatAnimal() {
         this.animalsTreated++;
     }
 }
