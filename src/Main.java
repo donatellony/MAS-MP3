@@ -38,8 +38,8 @@ public class Main {
             Chat.showChats();
 
             System.out.println("===Showing the multi-aspect inheritance implementation using the Animal class===");
-            Dog goodBoy = new Dog("Max", "Shiba-inu", LocalDate.parse("2020-04-05"), AnimalSize.MEDIUM, AnimalSize.MEDIUM);
-            Cat sweetGirl = new Cat("Ajwi", "Scottish Fold", LocalDate.parse("2019-06-07"), "British Shorthair");
+            Dog goodBoy = new Dog("Max", "Shiba-inu", LocalDate.parse("2020-04-05"), AnimalGender.MALE, AnimalSize.MEDIUM, AnimalSize.MEDIUM);
+            Cat sweetGirl = new Cat("Ajwi", "Scottish Fold", LocalDate.parse("2019-06-07"), AnimalGender.FEMALE ,"British Shorthair");
             System.out.println("Good boy " + goodBoy.getName() + " says " + goodBoy.getVoice());
             System.out.println("Sweet girl " + sweetGirl.getName() + " says " + sweetGirl.getVoice());
             System.out.println("==Let's see who are they searching for?==");

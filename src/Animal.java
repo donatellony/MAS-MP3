@@ -8,6 +8,8 @@ enum AnimalRelationshipStatus {LOOKING_FOR_LOVE, LOOKING_FOR_FRIEND}
 
 enum AnimalSize {EXTRA_SMALL, SMALL, MEDIUM, BIG, EXTRA_BIG}
 
+enum AnimalGender {MALE, FEMALE}
+
 public abstract class Animal {
     private static ArrayList<Animal> animals = new ArrayList<>();
 
@@ -21,22 +23,24 @@ public abstract class Animal {
     private String name;
     private LocalDate birthDate;
     private String breed;
+    private AnimalGender gender;
 
-    private Animal(String name, String breed, LocalDate birthDate) throws InvalidAnimalDataException {
+    private Animal(String name, String breed, LocalDate birthDate, AnimalGender gender) throws InvalidAnimalDataException {
         setName(name);
         setBreed(breed);
         setBirthDate(birthDate);
+        setGender(gender);
         addAnimal(this);
     }
 
-    public Animal(String name, String breed, LocalDate birthDate, String preferredLoverBreed) throws AnimalSearchTypeException, InvalidAnimalDataException {
-        this(name, breed, birthDate);
+    public Animal(String name, String breed, LocalDate birthDate, AnimalGender gender, String preferredLoverBreed) throws AnimalSearchTypeException, InvalidAnimalDataException {
+        this(name, breed, birthDate, gender);
         setStatus(AnimalRelationshipStatus.LOOKING_FOR_LOVE);
         setPreferredLoverBreed(preferredLoverBreed);
     }
 
-    public Animal(String name, String breed, LocalDate birthDate, AnimalSize size, AnimalSize friendSize) throws InvalidAnimalDataException, AnimalSearchTypeException {
-        this(name, breed, birthDate);
+    public Animal(String name, String breed, LocalDate birthDate, AnimalGender gender, AnimalSize size, AnimalSize friendSize) throws InvalidAnimalDataException, AnimalSearchTypeException {
+        this(name, breed, birthDate, gender);
         setStatus(AnimalRelationshipStatus.LOOKING_FOR_FRIEND);
         setSize(size);
         setFriendSize(friendSize);
@@ -61,7 +65,8 @@ public abstract class Animal {
         sb.append(getName())
                 .append(", the ")
                 .append(getClass().getSimpleName())
-                .append(" is looking for ");
+                .append(" is a ").append(getGender())
+                .append(" and is looking for ");
         if (isLookingForFriend())
             sb.append("friends!");
         if (isLookingForLove())
@@ -165,6 +170,7 @@ public abstract class Animal {
                 .append(" (")
                 .append(getBreed())
                 .append(")")
+                .append(" is a ").append(getGender())
                 .append(", was born in ")
                 .append(getBirthDate().toString())
                 .append("\n");
@@ -181,5 +187,15 @@ public abstract class Animal {
             e.printStackTrace();
         }
         return sb.toString();
+    }
+
+    public AnimalGender getGender() {
+        return gender;
+    }
+
+    public void setGender(AnimalGender gender) throws InvalidAnimalDataException {
+        if(gender == null)
+            throw new InvalidAnimalDataException();
+        this.gender = gender;
     }
 }
